@@ -26,14 +26,17 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-	  <!-- Do not change NSAllowsArbitraryLoads to true, or you will risk app rejection! -->
 		<key>NSAllowsArbitraryLoads</key>
 		<false/>
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>well we are using your location to show delivery process<string/>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>well we are using your location to show delivery process<string/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>well we are using your location to show delivery process<string/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -48,5 +51,16 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Okra-Bold.ttf</string>
+		<string>Okra-ExtraBold.ttf</string>
+		<string>Okra-Medium.ttf</string>
+		<string>Okra-MediumLight.ttf</string>
+		<string>MaterialIcons.ttf</string>
+		<string>MaterialCommunityIcons.ttf</string>
+		<string>Ionicons.ttf</string>
+
+	</array>
 </dict>
 </plist>
