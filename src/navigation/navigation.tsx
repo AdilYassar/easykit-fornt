@@ -1,5 +1,7 @@
 //import libraries
 import CustomerLogin from '@features/auth/CustomerLogin';
+import ProductDashboard from '@features/auth/dashboard/ProductDashboard';
+import DeliveryDashboard from '@features/auth/delivery/DeliveryDashboard';
 import DeliveryLogin from '@features/auth/DeliveryLogin';
 import SplashScreen from '@features/auth/SplashScreen';
 import { NavigationContainer } from '@react-navigation/native';
@@ -22,6 +24,8 @@ const Navigation: FC = () => {
                 }}
             >
                 <Stack.Screen name="SplashScreen" component={SplashScreen} />
+                <Stack.Screen name="ProductDashboard" component={ProductDashboard} />
+                <Stack.Screen name="DeliveryDashboard" component={DeliveryDashboard} />
                 <Stack.Screen
                 options={{
                     animation:'fade',

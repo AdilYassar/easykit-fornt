@@ -1,18 +1,21 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { View, StyleSheet, Animated, Image, Text } from 'react-native';
+import { View, StyleSheet, Animated, Image, Text, Keyboard, Alert } from 'react-native';
 import React, { FC, useEffect, useRef, useState } from 'react';
 import { GestureHandlerRootView, PanGestureHandler, State, PanGestureHandlerGestureEvent } from 'react-native-gesture-handler';
 import CustomSafeAreaView from '@components/global/customSafeAreaView';
 import ProductSlider from '@components/login/ProductSlider';
 import { resetAndNavigate } from '@utils/Navigation';
 import CustomText from '@components/ui/CustomText';
-import { Colors, Fonts } from '@utils/Constants';
+import { Colors, Fonts, lightColors } from '@utils/Constants';
 import CustomInput from '@components/ui/CustomInput';
 import CustomButton from '@components/ui/CustomButton';
-import useKeyboardOffsetHeight from '@utils/UseKEyboardOffsetHeight';
+import useKeyboardOffsetHeight from '@utils/UseKeyboardOffsetHeight';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { RFValue } from 'react-native-responsive-fontsize';
+import LinearGradient from 'react-native-linear-gradient';
+import { customerLogin } from '@service/authService';
 
+const bottomColors = [...lightColors].reverse();
 const CustomerLogin: FC = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [loading, setLoading] = useState(false);
@@ -23,15 +26,22 @@ const CustomerLogin: FC = () => {
   useEffect(() => {
     Animated.timing(animatedValue, {
       toValue: keyboardOffsetHeight === 0 ? 0 : -keyboardOffsetHeight * 0.84,
-      duration: 500,
+      duration: 400,
       useNativeDriver: true,
     }).start();
   }, [keyboardOffsetHeight, animatedValue]);
 
   const handleAuth = async () => {
+    Keyboard.dismiss();
     setLoading(true);
-    // Perform authentication logic
+    try {
+      await customerLogin(phoneNumber);
+      resetAndNavigate('ProductDashboard');
+    } catch (error) {
+      Alert.alert('login Failed');
+    }finally{
     setLoading(false);
+    }
   };
 
   const [gestureSequence, setGestureSequence] = useState<string[]>([]);
@@ -70,6 +80,7 @@ const CustomerLogin: FC = () => {
               contentContainerStyle={styles.subContainer}
               style={{ transform: [{ translateY: animatedValue }] }}
             >
+            <LinearGradient colors={bottomColors} style={styles.gradient} />
               <View style={styles.content}>
                 <Image source={require('@assets/images/logo.png')} style={styles.logo} />
                 <CustomText fontFamily={Fonts.Bold}>Pakistan's first easy grocery app</CustomText>
@@ -111,6 +122,12 @@ const CustomerLogin: FC = () => {
 };
 
 const styles = StyleSheet.create({
+  gradient:{
+ paddingTop:60,
+ width: '100%',
+
+  },
+
   footer:{
     borderTopWidth:0.8,
     borderColor:Colors.border,
@@ -123,7 +140,7 @@ const styles = StyleSheet.create({
     padding:10,
     backgroundColor:'#fff',
     width:'100%',
-    
+
   },
 
   logo: {
