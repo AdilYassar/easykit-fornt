@@ -6,14 +6,14 @@ import { navigate } from '@utils/Navigation';
 import CustomText from '@components/ui/CustomText';
 import { Fonts } from '@utils/Constants';
 import { useNavigation } from '@react-navigation/native';
-import ProductCategories from '@features/category/ProductCategories';
+
 
 const CategoryContainer:FC<{data:any}> = ({data}) => {
     const navigation = useNavigation(); // Access Navigation
     const renderItems = (items:any[])=>{
         return (<>{items.map((item, index)=>{
             return(
-<ScalePress onPress={()=>navigate('ProductCategories')} key={index} style={styles.item}>
+<ScalePress onPress={()=>navigate('Detail')} key={index} style={styles.item}>
 
     <View style={styles.imageContainer}>
         <Image source= {item.image} style = {styles.image}/>

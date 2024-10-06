@@ -1,6 +1,6 @@
 import {View, StyleSheet} from 'react-native';
 import React from 'react';
-import {adData, categories} from '@utils/dummyData';
+import {adData, categories, hardware} from '@utils/dummyData';
 import AdCrousal from './AdCrousal';
 import CustomText from '@components/ui/CustomText';
 import { Fonts } from '@utils/Constants';
@@ -12,8 +12,8 @@ const Content = () => {
       <AdCrousal adData={adData} />
       <CustomText variant="h5" fontFamily={Fonts.Bold} >Home Nessecities</CustomText>
       <CategoryContainer data={categories} />
-      <CustomText variant="h5" fontFamily={Fonts.Bold} >Daily needs</CustomText>
-      <CategoryContainer data={categories} />
+      <CustomText variant="h5" fontFamily={Fonts.Bold} >hardware</CustomText>
+      <CategoryContainer data={hardware} />
       <CustomText variant="h5" fontFamily={Fonts.Bold} >Sanitary</CustomText>
       <CategoryContainer data={categories} />
       <CustomText variant="h5" fontFamily={Fonts.Bold} >Snacks</CustomText>

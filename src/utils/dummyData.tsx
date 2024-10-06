@@ -156,6 +156,50 @@ export const categories = [
     },
 ]
 
+export const hardware = [
+    {
+        id: 1,
+        name: "Tools & Equipment",
+        image: require('../assets/category/tools.jpeg'), // Update with actual image path
+        products: productsList
+    },
+    {
+        id: 2,
+        name: "Fasteners",
+        image: require('../assets/category/fasteners.jpeg') // Update with actual image path
+    },
+    {
+        id: 3,
+        name: "Paint & Supplies",
+        image: require('../assets/category/painting-supplies.jpg') // Update with actual image path
+    },
+    {
+        id: 4,
+        name: "Plumbing Supplies",
+        image: require('../assets/category/plumb.jpeg') // Update with actual image path
+    },
+    {
+        id: 5,
+        name: "Electrical Supplies",
+        image: require('../assets/category/elect.jpeg') // Update with actual image path
+    },
+    {
+        id: 6,
+        name: "Gardening Tools",
+        image: require('../assets/category/garden.jpeg') // Update with actual image path
+    },
+    {
+        id: 7,
+        name: "Safety Gear",
+        image: require('../assets/category/th.jpeg') // Update with actual image path
+    },
+    {
+        id: 8,
+        name: "Building Materials",
+        image: require('../assets/category/buildi2.jpeg') // Update with actual image path
+    },
+];
+
 
 export const wavyData = "M 0 2000 0 500 Q 62.5 280 125 500 t 125 0 125 0 125 0 125 0 125 0 125 0 125 0 125 0 125 0 125 0   125 0 125 0 125 0  125 0 125 0 125 0  125 0 125 0 125 0  125 0 125 0 125 0  125 0 125 0 125 0  125 0 125 0 125 0  125 0 125 0 125 0  125 0 125 0 125 0  125 0 125 0 125 0  125 0 125 0 125 0 v1000 z"
 

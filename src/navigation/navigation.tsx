@@ -3,6 +3,8 @@ import CustomerLogin from '@features/auth/CustomerLogin';
 import ProductDashboard from '@features/auth/dashboard/ProductDashboard';
 import DeliveryDashboard from '@features/auth/delivery/DeliveryDashboard';
 import DeliveryLogin from '@features/auth/DeliveryLogin';
+import Detail from '@features/category/Detail';
+
 import SplashScreen from '@features/auth/SplashScreen';
 import ProductCategories from '@features/category/ProductCategories';
 
@@ -27,7 +29,7 @@ const Navigation: FC = () => {
             >
                 <Stack.Screen name="SplashScreen" component={SplashScreen} />
                 <Stack.Screen name="ProductDashboard" component={ProductDashboard} />
-              
+                <Stack.Screen name="Detail" component={Detail} />
                 <Stack.Screen name=" ProductCategories" component={ ProductCategories} />
                 <Stack.Screen name="DeliveryDashboard" component={DeliveryDashboard} />
                 
