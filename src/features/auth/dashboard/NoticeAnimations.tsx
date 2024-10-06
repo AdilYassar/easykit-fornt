@@ -17,7 +17,7 @@ const NoticeAnimations: FC<{noticePosition:any; children:React.ReactElement}> = 
 
      <RNAnimated.View style={[styles.contentContainer ,{paddingTop:noticePosition.interpolate({
         inputRange:[NOTICE_HEIGHT, 0],
-        outputRange:[0, NOTICE_HEIGHT + 20],
+        outputRange:[0,NoticeHeight + 20],
      })}]}>
         {children}
         </RNAnimated.View>

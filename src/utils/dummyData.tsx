@@ -18,11 +18,12 @@ export const imageData = [
 ]
 
 export const adData = [
-    require('../assets/products/c1.jpg'),
-    require('../assets/products/c2.jpg'),
-    require('../assets/products/c3.jpg'),
+    require('../assets/products/Ad-Creative-6.jpg'),
+    require('../assets/products/maxresdefault.jpg'),
+    require('../assets/products/11.png'),
+    require('../assets/products/Nike-Print-Ads-12.jpg'),
+    require('../assets/products/68ein87v6c5o43tp4gcbzbhyar3j.jpeg'),
     require('../assets/products/c4.jpg'),
-    require('../assets/products/c5.jpg'),
 ]
 
 const productsList =

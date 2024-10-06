@@ -1,0 +1,60 @@
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import {screenWidth} from '@utils/scaling';
+import {FC} from 'react';
+import {View, Text, StyleSheet} from 'react-native';
+import {useSharedValue} from 'react-native-reanimated';
+import Carousel from 'react-native-reanimated-carousel';
+import {Image} from 'react-native';
+import ScalePress from '@components/ui/ScalePress';
+
+
+const AdCrousal: FC<{adData: any}> = ({adData}) => {
+  const progressValue = useSharedValue(0);
+  const baseOptions = {
+    vertical: false,
+    width: screenWidth,
+    height: screenWidth * 0.5,
+  };
+  return (
+    <View style={{left: -20, marginVertical: 20}}>
+      <Carousel
+        {...baseOptions}
+        loop
+        pagingEnabled
+        snapEnabled
+        autoPlay
+        autoPlayInterval={3000}
+        mode="parallax"
+        data={adData}
+        modeConfig={{
+          parallaxScrollingOffset: 0,
+          parallaxScrollingScale: 0.94,
+        }}
+        renderItem={({item}: any) => {
+          return(
+            <ScalePress style={styles.imageContainer}>
+            <Image source={item} style={styles.image} />
+            </ScalePress>
+            
+            )
+        }}
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  imageContainer: {
+    width: '100%',
+    height: '100%',
+  },
+  image: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
+    borderRadius: 20,
+  },
+});
+export default AdCrousal;
