@@ -15,7 +15,7 @@ export const getAllCategories = async () => {
 };
 
 // Fetch products by category ID
-export const getProductsByCategoryId = async (id: string | number) => {
+export const getProductsByCategoryId = async (id: string ) => {
     try {
         const response = await axios.get(`${BASE_URL}/products/${id}`);
       

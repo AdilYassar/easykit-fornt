@@ -13,6 +13,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { navigationRef } from '@utils/Navigation';
 import { FC } from 'react';
 import React from 'react';
+import ProductOrder from '@features/order/ProductOrder';
 
 
 const Stack = createNativeStackNavigator();
@@ -30,6 +31,7 @@ const Navigation: FC = () => {
                 <Stack.Screen name="SplashScreen" component={SplashScreen} />
                 <Stack.Screen name="ProductDashboard" component={ProductDashboard} />
                 <Stack.Screen name="Detail" component={Detail} />
+                <Stack.Screen name="ProductOrder" component={ProductOrder} />
                 <Stack.Screen name=" ProductCategories" component={ ProductCategories} />
                 <Stack.Screen name="DeliveryDashboard" component={DeliveryDashboard} />
                 

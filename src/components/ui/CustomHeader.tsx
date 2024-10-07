@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import {View, SafeAreaView, StyleSheet, Pressable} from 'react-native';
 import React, {FC} from 'react';
 import {Colors, Fonts} from '@utils/Constants';
@@ -17,8 +18,9 @@ const CustomHeader: FC<{title: string; search?: boolean}> = ({
           <Icon
             name="chevron-back"
             color={Colors.text}
-            size={RFValue(16)}
-            style={{left: -100}}
+            size={RFValue(24)}
+            style={{left: -100, position:'static'}}
+            
           />
         </Pressable>
 
