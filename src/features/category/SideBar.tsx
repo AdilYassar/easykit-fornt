@@ -73,7 +73,7 @@ const SideBar: FC<SideBarProps> = ({ selectedCategory, categories = [], onCatego
                   <Animated.Image source={{ uri: category.image }} style={[styles.image]} />
                 </View>
                 <CustomText
-                  fontSize={RFValue(7)}
+                  fontSize={RFValue(9)}
                   style={{
                     textAlign: 'center',
                     color: selectedCategory?._id === category._id ? Colors.secondary : '#333', // Change color based on selection

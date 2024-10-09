@@ -1,7 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { hocStyle } from '@styles/globalStyles';
+import { hocStyle } from '@styles/GlobalStyles';
 import { FC, useEffect, useRef, useState } from 'react';
 import { Animated, StyleSheet } from 'react-native';
 
