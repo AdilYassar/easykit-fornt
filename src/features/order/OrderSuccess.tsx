@@ -2,19 +2,23 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
-import { View, StyleSheet, ScrollView, Image } from 'react-native';
+import {View, StyleSheet, ScrollView} from 'react-native';
 import CustomHeader from '@components/ui/CustomHeader';
 import CustomText from '@components/ui/CustomText';
 import CustomButton from '@components/ui/CustomButton';
-import { Colors, Fonts } from '@utils/Constants';
-import { useAuthStore } from '@state/authStore';
-import { useNavigation } from '@react-navigation/native'; // Import useNavigation
-import { navigate } from '@utils/Navigation';
+import {Colors, Fonts} from '@utils/Constants';
+import {useAuthStore} from '@state/authStore';
+import {useNavigation} from '@react-navigation/native'; // Import useNavigation
+import {navigate} from '@utils/Navigation';
 
 interface OrderSuccessProps {
   route: {
     params: {
-      items?: Array<{ id: string; item: { name: string; price: number }; count: number }>; // Adjusted item structure
+      items?: Array<{
+        id: string;
+        item: {name: string; price: number};
+        count: number;
+      }>; // Adjusted item structure
       totalPrice: number;
       address: string; // Adjust according to your address structure
       coupon?: string; // Added coupon field
@@ -22,9 +26,14 @@ interface OrderSuccessProps {
   };
 }
 
-const OrderSuccess: React.FC<OrderSuccessProps> = ({ route }) => {
-  const { items = [], totalPrice, address = 'Not specified', coupon = 'No coupon applied' } = route.params; // Default to empty array
-  const { user } = useAuthStore();
+const OrderSuccess: React.FC<OrderSuccessProps> = ({route}) => {
+  const {
+    items = [],
+    totalPrice,
+    address = 'Not specified',
+    coupon = 'No coupon applied',
+  } = route.params; // Default to empty array
+  const {user} = useAuthStore();
   const navigation = useNavigation(); // Initialize useNavigation
 
   return (
@@ -34,21 +43,29 @@ const OrderSuccess: React.FC<OrderSuccessProps> = ({ route }) => {
         <CustomText variant="h2" fontFamily={Fonts.Bold} style={styles.title}>
           Thank you for your order!
         </CustomText>
-        
+
         {/* Receipt Details Section */}
         <View style={styles.receiptContainer}>
-          <CustomText variant="h4" fontFamily={Fonts.Regular} style={styles.subtitle}>
+          <CustomText
+            variant="h4"
+            fontFamily={Fonts.Regular}
+            style={styles.subtitle}>
             Order Details
           </CustomText>
 
           {/* Items Ordered */}
           <View style={styles.detailsContainer}>
-            <CustomText variant="h5" fontFamily={Fonts.Medium}>Items Ordered:</CustomText>
+            <CustomText variant="h5" fontFamily={Fonts.Medium}>
+              Items Ordered:
+            </CustomText>
             {items.length > 0 ? (
-              items.map((item) => (
+              items.map(item => (
                 <View key={item.id} style={styles.itemRow}>
                   <CustomText style={styles.itemText}>
-                    {item.item.name} x {item.count} (${(item.item.price * item.count).toFixed(2)})
+                    {item.item.name} x {item.count}
+                  </CustomText>
+                  <CustomText style={styles.itemPrice}>
+                    ${(item.item.price * item.count).toFixed(2)}
                   </CustomText>
                 </View>
               ))
@@ -67,7 +84,10 @@ const OrderSuccess: React.FC<OrderSuccessProps> = ({ route }) => {
           {/* Total Price */}
           <View style={styles.totalContainer}>
             <CustomText variant="h5" fontFamily={Fonts.Medium}>
-              Total Price: <CustomText style={styles.totalAmount}>${totalPrice.toFixed(2)}</CustomText>
+              Total Price:{' '}
+              <CustomText style={styles.totalAmount}>
+                ${totalPrice.toFixed(2)}
+              </CustomText>
             </CustomText>
           </View>
 
@@ -83,7 +103,9 @@ const OrderSuccess: React.FC<OrderSuccessProps> = ({ route }) => {
 
           {/* Cancellation Policy (Placeholder) */}
           <View style={styles.cancellationContainer}>
-            <CustomText variant="h5" fontFamily={Fonts.Medium}>Cancellation Policy:</CustomText>
+            <CustomText variant="h5" fontFamily={Fonts.Medium}>
+              Cancellation Policy:
+            </CustomText>
             <CustomText style={styles.cancellationText}>
               You can cancel your order within 30 minutes for a full refund.
             </CustomText>
@@ -91,15 +113,31 @@ const OrderSuccess: React.FC<OrderSuccessProps> = ({ route }) => {
         </View>
       </ScrollView>
 
+      {/* Live Tracking Button */}
       <View style={styles.buttonContainer}>
-        <CustomButton
-          title="Back to Home"
-          onPress={() => {
-            navigate('ProductDashboard'); // Navigate to the home screen
-          }}
-          disabled={false}
-          loading={false}
-        />
+        <View style={styles.trackButton}>
+          <CustomButton
+            title="Live Tracking"
+            onPress={() => {
+              navigate('LiveTracking'); // Navigate to the Live Tracking screen
+            }}
+            disabled={false}
+            loading={false}
+          />
+        </View>
+
+        {/* Back to Home Button */}
+
+        <View style={styles.homeButton}>
+          <CustomButton
+            title="Back to Home"
+            onPress={() => {
+              navigate('ProductDashboard'); // Navigate to the home screen
+            }}
+            disabled={false}
+            loading={false}
+          />
+        </View>
       </View>
     </View>
   );
@@ -116,18 +154,20 @@ const styles = StyleSheet.create({
   title: {
     marginBottom: 10,
     textAlign: 'center',
+    color: Colors.primary,
   },
   subtitle: {
     marginBottom: 20,
     textAlign: 'center',
+    color: Colors.secondary,
   },
   receiptContainer: {
     padding: 15,
-    backgroundColor: '#ddd',
+    backgroundColor: '#f9f9f9',
     borderRadius: 8,
     borderWidth: 1,
     borderColor: Colors.border,
-    shadowColor: Colors.easy,
+    shadowColor: Colors.text, // Ensure Colors.shadow is defined
     shadowOffset: {
       width: 0,
       height: 2,
@@ -143,8 +183,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingVertical: 5,
+    borderBottomWidth: 0.5,
+    borderBottomColor: Colors.border,
   },
   itemText: {
+    fontSize: 16,
+    color: Colors.text,
+  },
+  itemPrice: {
     fontSize: 16,
     color: Colors.text,
   },
@@ -159,6 +205,7 @@ const styles = StyleSheet.create({
   },
   totalAmount: {
     fontWeight: 'bold',
+    color: Colors.primary,
   },
   addressContainer: {
     marginBottom: 10,
@@ -173,7 +220,20 @@ const styles = StyleSheet.create({
     color: Colors.secondary,
   },
   buttonContainer: {
-    margin: 20,
+    margin: 10,
+    flexDirection: 'row',
+    alignContent: 'space-between',
+  },
+  trackButton: {
+    //backgroundColor: Colors.primary,
+    width: '40%',
+    marginBottom: 10,
+    right: 5,
+  },
+  homeButton: {
+    width: '40%',
+    left: 80,
+    // backgroundColor: Colors.secondary,
   },
 });
 

@@ -14,3 +14,15 @@ export const createOrder = async (items: any, totalPrice: number) => {
         return null; // Return null in case of error
     }
 };
+
+export const getOrderById = async (id:string) => {
+    try {
+        const response = await appAxios.get(`/order/${id}`);
+
+        console.log(response.data)
+        return response.data; // Return the data from the response
+    } catch (error) {
+        console.error('fetch order error:', error); // Use console.error for error logging
+        return null; // Return null in case of error
+    }
+};
