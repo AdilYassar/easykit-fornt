@@ -39,3 +39,16 @@ export const fetchCustomerOrders = async (userId:string) => {
         return null; // Return null in case of error
     }
 };
+
+export const fetchOrders = async (status:string, userId:string, branchId:string) => {
+    let uri=status==='available' ? `/order?status=${status}&branchId=${branchId}`:`/order?branchId=${branchId}$deliveryPartnerId=${userId}&status=delivered`
+    try {
+        const response = await appAxios.get(uri);
+
+        console.log(response.data)
+        return response.data; // Return the data from the response
+    } catch (error) {
+        console.error('fetch  delivery order error:', error); // Use console.error for error logging
+        return null; // Return null in case of error
+    }
+};
