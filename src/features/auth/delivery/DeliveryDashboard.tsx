@@ -1,4 +1,5 @@
-import { View, Text } from 'react-native'
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 
 const DeliveryDashboard = () => {
@@ -8,5 +9,9 @@ const DeliveryDashboard = () => {
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  
+})
 
 export default DeliveryDashboard;
