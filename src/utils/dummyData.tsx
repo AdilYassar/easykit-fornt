@@ -23,7 +23,7 @@ export const adData = [
     require('../assets/products/11.png'),
     require('../assets/products/Nike-Print-Ads-12.jpg'),
     require('../assets/products/68ein87v6c5o43tp4gcbzbhyar3j.jpeg'),
-    require('../assets/products/c4.jpg'),
+    require('../assets/products/space.jpg'),
 ]
 
 const productsList =
@@ -197,6 +197,95 @@ export const hardware = [
         id: 8,
         name: "Building Materials",
         image: require('../assets/category/buildi2.jpeg') // Update with actual image path
+    },
+];
+
+export const Medicine = [
+    {
+        id: 1,
+        name: "Panadol",
+        image: require('../assets/category/panadolth_3.jpeg'), // Update with actual image path
+        products: productsList
+    },
+    {
+        id: 2,
+        name: "ENO",
+        image: require('../assets/category/eno0008.jpg') // Update with actual image path
+    },
+    {
+        id: 3,
+        name: "Jardi-Met",
+        image: require('../assets/category/jardith_3.jpeg') // Update with actual image path
+    },
+    {
+        id: 4,
+        name: "Paracetamol",
+        image: require('../assets/category/th_3paracetamaol.jpeg') // Update with actual image path
+    },
+    {
+        id: 5,
+        name: "Arinac",
+        image: require('../assets/category/th_3arinac.jpeg') // Update with actual image path
+    },
+    {
+        id: 6,
+        name: "Acefyl cough syrup",
+        image: require('../assets/category/th_3acefyl.jpeg') // Update with actual image path
+    },
+    {
+        id: 7,
+        name: "Ponston",
+        image: require('../assets/category/th_3ponston.jpeg') // Update with actual image path
+    },
+    {
+        id: 8,
+        name: "ORS",
+        image: require('../assets/category/prolyte-ors-orange-drink-sachet-21-gm-2-1654249497.jpg') // Update with actual image path
+    },
+];
+
+
+export const Frozen = [
+    {
+        id: 1,
+        name: "Parathas",
+        image: require('../assets/category/parathaGettyImages-618764348-5c829cb746e0fb0001cbf4b4.jpg'), // Update with actual image path
+        products: productsList
+    },
+    {
+        id: 2,
+        name: "Bread Rolls",
+        image: require('../assets/category/breadroollsth_3.jpeg') // Update with actual image path
+    },
+    {
+        id: 3,
+        name: "Burgers",
+        image: require('../assets/category/burger.jpeg') // Update with actual image path
+    },
+    {
+        id: 4,
+        name: "shawarma",
+        image: require('../assets/category/shawarmath_3.jpeg') // Update with actual image path
+    },
+    {
+        id: 5,
+        name: "Pasta",
+        image: require('../assets/category/pastath_3.jpeg') // Update with actual image path
+    },
+    {
+        id: 6,
+        name: "Pizza",
+        image: require('../assets/category/pizzat_500x300.jpeg') // Update with actual image path
+    },
+    {
+        id: 7,
+        name: "kababs",
+        image: require('../assets/category/kababsth_3.jpeg') // Update with actual image path
+    },
+    {
+        id: 8,
+        name: "Ramen",
+        image: require('../assets/category/ramenth_3.jpeg') // Update with actual image path
     },
 ];
 
