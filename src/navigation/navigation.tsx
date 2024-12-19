@@ -15,9 +15,15 @@ import { FC } from 'react';
 import React from 'react';
 import ProductOrder from '@features/order/ProductOrder';
 import OrderSuccess from '@features/order/OrderSuccess';
-import LiveTracking from '@features/map/LiveTracking';
 import Profile from '@features/profile/Profile';
 import DeliveryMap from '@features/auth/delivery/DeliveryMap';
+import LiveTracking from '@features/map/Livetracking';
+import News from '@features/News';
+import NewsDetail from '@features/NewsDetail';
+import { FeaturesScreen, GetStartedScreen, IntroductionScreen } from '@features/Introduction';
+import Search from '@features/search/Search';
+
+
 
 
 const Stack = createNativeStackNavigator();
@@ -27,11 +33,15 @@ const Navigation: FC = () => {
     return (
         <NavigationContainer ref={navigationRef}>
             <Stack.Navigator
-                initialRouteName="SplashScreen" // Correct placement
+                initialRouteName="IntroductionScreen" // Correct placement
                 screenOptions={{
                     headerShown: false, // Correct placement and syntax
                 }}
             >
+                <Stack.Screen name="GetStartedScreen" component={GetStartedScreen} />
+                <Stack.Screen name="FeaturesScreen" component={FeaturesScreen} />
+                <Stack.Screen name="IntroductionScreen" component={IntroductionScreen} />
+                <Stack.Screen name="Search" component={Search} />
                 <Stack.Screen name="SplashScreen" component={SplashScreen} />
                 <Stack.Screen name="ProductDashboard" component={ProductDashboard} />
                 <Stack.Screen name="DeliveryMap" component={DeliveryMap} />
@@ -42,7 +52,17 @@ const Navigation: FC = () => {
                 <Stack.Screen name="LiveTracking" component={LiveTracking} />
                 <Stack.Screen name=" ProductCategories" component={ ProductCategories} />
                 <Stack.Screen name="DeliveryDashboard" component={DeliveryDashboard} />
-                       
+                <Stack.Screen 
+                    name="News" 
+                    component={News} 
+                    options={{ title: 'Food & Grocery News' }} 
+                />
+                <Stack.Screen 
+                    name="NewsDetail" 
+                    component={NewsDetail} 
+                 
+                />
+
                 <Stack.Screen
                 options={{
                     animation:'fade',

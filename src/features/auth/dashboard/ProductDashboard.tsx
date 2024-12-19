@@ -20,6 +20,7 @@ import { Fonts } from '@utils/Constants';
 import Animated, { useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import Icon from 'react-native-vector-icons/Ionicons';
 import withCart from '@features/cart/WithCart';
+import { navigate } from '@utils/Navigation';
 
 const NOTICE_HEIGHT = -(NoticeHeight + 12);
 
@@ -109,9 +110,14 @@ const ProductDashboard: FC = () => {
               <CustomText fontSize={RFValue(36)} fontFamily={Fonts.Bold} style={{ opacity: 0.2 }}>
                 Your Easy Grocery Kit
               </CustomText>
-              <CustomText fontFamily={Fonts.Bold} style={{ marginTop: 10, paddingBottom: 100, opacity: 0.2 }}>
-                Developed by Adil.
-              </CustomText>
+              <TouchableOpacity
+              onPress={() => navigate('News')}
+              
+              >
+                <CustomText  >
+                  Explore Some News About the Groceries
+                </CustomText>
+              </TouchableOpacity>
             </View>
           </CollapsibleScrollView>
         </CollapsibleContainer>

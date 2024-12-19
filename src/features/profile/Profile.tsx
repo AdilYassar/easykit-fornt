@@ -14,6 +14,8 @@ import ActionButton from './ActionButton';
 import OrderItem from './OrderItem';
 import { storage, tokenStorage } from '@state/storage';
 import { resetAndNavigate } from '@utils/Navigation';
+import { SearchBar } from 'react-native-screens';
+import StickySearchBar from '@features/auth/dashboard/StickySearchBar';
 
 
 const Profile: FC = () => {
@@ -38,6 +40,7 @@ const renderOrders = ({item, index}:any)=>{
   const renderHeader =()=>{
     return(
         <View>
+           
             <CustomText variant='h3' fontFamily={Fonts.SemiBold}>
                 Your account 
             </CustomText>
@@ -58,6 +61,7 @@ const renderOrders = ({item, index}:any)=>{
                 storage.clearAll()
                 resetAndNavigate('CustomerLogin')
             }}  />
+            
             <CustomText variant='h8' style={styles.pastText}>
                 Past Orders
             </CustomText>
@@ -67,6 +71,8 @@ const renderOrders = ({item, index}:any)=>{
   return (
     <View style={styles.container}>
      <CustomHeader title='Profile' />
+
+  
      <FlatList 
      data={orders}
      ListHeaderComponent={renderHeader}
@@ -74,6 +80,7 @@ const renderOrders = ({item, index}:any)=>{
      keyExtractor={(item:any)=>item?.orderId}
      contentContainerStyle={styles.scrollViewContent}
      />
+     
     </View>
   );
 };

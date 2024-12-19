@@ -20,6 +20,7 @@ const CustomHeader: FC<{title: string; search?: boolean}> = ({
             color={Colors.text}
             size={RFValue(24)}
             style={{left: -100, position:'static'}}
+            onPress={() => goBack()}
             
           />
         </Pressable>

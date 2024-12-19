@@ -7,11 +7,14 @@ import { Colors, Fonts } from '@utils/Constants';
 import { RFValue } from 'react-native-responsive-fontsize';
 import RollingBar from 'react-native-rolling-bar';
 import CustomText from '@components/ui/CustomText';
+import { navigate } from '@utils/Navigation';
 
 const SearchBar:FC = () => {
   return (
     <TouchableOpacity style={styles.container} activeOpacity={0.8}>
-      <Icon name="search" color={Colors.text} size={RFValue(20)} />
+      <Icon name="search" color={Colors.text} size={RFValue(20)} 
+      onPress={()=>navigate('Search')}
+      />
       <RollingBar interval={3000} defaultStyle={false} customStyle={styles.textContainer} >
         <CustomText variant="h6" fontFamily={Fonts.Medium}> Search "Nachos Machos"</CustomText>
         <CustomText variant="h6" fontFamily={Fonts.Medium}> Search "Milk"</CustomText>

@@ -6,5 +6,6 @@
         "Ionicons",
         "justifycontent",
         "livetracking"
-    ]
+    ],
+    "java.compile.nullAnalysis.mode": "disabled"
 }
